@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-         DOCKER_TAG = "${BUILD_ID}"
+         DOCKER_TAG = "v${BUILD_ID}"
     }
 
     stages {
