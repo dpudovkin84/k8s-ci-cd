@@ -13,15 +13,15 @@ pipeline {
             }
         }
     }
-        stage('Push Docker Image to Dockerhub') {
+        stage('Push Docker Image to Dockerhub'){
             steps{   
               withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'Dockerhubpwd')]) {
               sh "docker login - dpudovkin84 -p ${Dockerhubpwd}"
               sh "docker push dpudovkin84/my_docker_hub:${DOCKER_TAG}"
               }        
             }
-    
-        }  
+        }
+    }  
 }
 def getDockerTag(){
     def tag = sh script: "git rev-parse HEAD", returnStdout: true
