@@ -21,6 +21,20 @@ pipeline {
               }        
             }
         }
+        stage('Deploy to K8s'){
+            steps{
+              sh "chmod +x changeTag.sh"
+              sh "./changeTag.sh ${DOCKER_TAG}"
+              sshagent(['ssh-kubectl-key']) {
+                 sh "scp -o StrictHostKeyChecking=no deploy-prod.yml dpudovkin@10.129.0.32:/home/dpudovkin/ci-cd/" 
+                 sh "ssh dpudovkin@10.129.0.32:/ci-cd/ kubectl apply -f deploy-prod.yml"   
+              }
+              }
+            }
+        }
+
+
+
     }  
 }
 def getDockerTag(){
