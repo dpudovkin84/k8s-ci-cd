@@ -2,7 +2,7 @@
 <body bgcolor=white>
 <center>
 <h2><font color=yellow>Hello from Frodo and friends</font></h2>
-Jenkins to K8S deployment!<br>
+<h2><font color=green>Jenkins to K8S deployment!<font></h2>
 <font color=yellow>Frodo.net from github</font>
 <font color=red>Version: TagVersion</font>
 
