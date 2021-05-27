@@ -1,5 +1,5 @@
 <html>
-<body bgcolor=white>
+<body bgcolor=grey>
 <center>
 <h2><font color=yellow>Hello from Frodo and friends</font></h2>
 <h2><font color=green>Jenkins to K8S deployment!<font></h2>
