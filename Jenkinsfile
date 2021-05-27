@@ -1,7 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKER_TAG = getDockerTag()
+#        DOCKER_TAG = getDockerTag()
+         DOCKER_TAG = $BUILD_ID
     }
 
     stages {
