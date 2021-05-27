@@ -12,7 +12,7 @@ pipeline {
                 echo 'End of stage Build'
             }
         }
-    }
+    
         stage('Push Docker Image to Dockerhub'){
             steps{   
               withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'Dockerhubpwd')]) {
