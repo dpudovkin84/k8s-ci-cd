@@ -1,14 +1,13 @@
 pipeline {
     agent any
     environment {
-        PROJECT_NAME ='NEPTUNE'
-        OWNER_NAME = 'DMITRIY'
+        DOCKER_TAG=_NAME =getDockerTag()
     }
 
     stages {
         stage('Build Docker Image') {
             steps {
-                sh "docker build . -t dpudovkin84/my_docker_hub:v1"
+                sh "docker build . -t dpudovkin84/my_docker_hub:${DOCKER_TAG}"
                 echo 'Building............'
                 echo 'End of stage Build'
             }
@@ -17,7 +16,8 @@ pipeline {
   }  
 
 def getDockerTag(){
-    def tag = sh "
+    def tag = sh script: "git rev-parse HEAD", return Stdout: true
+    return tag
   }
 
 }
