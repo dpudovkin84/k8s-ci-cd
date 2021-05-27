@@ -7,6 +7,8 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
+                sh "chmod +x customIndex.sh" 
+                sh "./customIndex.sh ${DOCKER_TAG}"
                 sh "docker build . -t dpudovkin84/my_docker_hub:${DOCKER_TAG}"
                 echo 'Building............'
                 echo 'End of stage Build'
