@@ -16,7 +16,7 @@ pipeline {
         stage('Push Docker Image to Dockerhub'){
             steps{   
               withCredentials([string(credentialsId: 'dockerhub-pass', variable: 'Dockerhubpwd')]) {
-              sh "docker login - dpudovkin84 -p ${Dockerhubpwd}"
+              sh "docker login -u dpudovkin84 -p ${Dockerhubpwd}"
               sh "docker push dpudovkin84/my_docker_hub:${DOCKER_TAG}"
               }        
             }
