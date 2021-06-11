@@ -29,7 +29,7 @@ pipeline {
               sh "./changeTag.sh ${DOCKER_TAG}"
               sshagent(['ssh-kubectl-key']) {
                  sh "scp -o StrictHostKeyChecking=no values.yaml dpudovkin@10.129.0.32:/home/dpudovkin/helm_chart/" 
-                 sh "ssh dpudovkin@10.129.0.32 'cd ./helm_chart/; helm install HELM_APP ./helm_chart'"
+                 sh "ssh dpudovkin@10.129.0.32 'cd ./helm_chart/; helm install HELM_APP .'"
               }
               }
             }
