@@ -1,4 +1,4 @@
 #!/bin/bash
-sed "s/tagVersion/$1/g" deploy.yml > deploy-prod.yml
+sed "s/tagVersion/$1/g" values.template > values.yaml
 
 

@@ -1,0 +1,7 @@
+# Default Values for my Helm Chart
+
+container:
+  image:  dpudovkin84/my_docker_hub:tagVersion
+
+replicaCount: 2
+
